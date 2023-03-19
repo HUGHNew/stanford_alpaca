@@ -61,6 +61,8 @@ class TrainingArguments(transformers.TrainingArguments):
         default=512,
         metadata={"help": "Maximum sequence length. Sequences will be right padded (and possibly truncated)."},
     )
+    per_device_train_batch_size:int = field(default=4)
+    per_device_eval_batch_size:int = field(default=4)
 
 
 def safe_save_model_for_hf_trainer(trainer: transformers.Trainer, output_dir: str):
